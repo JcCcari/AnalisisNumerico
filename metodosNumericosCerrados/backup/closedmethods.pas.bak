@@ -1,0 +1,144 @@
+unit ClosedMethods;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Dialogs, ParseMath;
+type
+  TClosedMethods = class
+    private
+      //a: Double ; //* first Interval
+      //b: Double; //* second interval
+
+      //* number of digits precision
+      //* ie: 1 digit -> presicion 0.01
+      //*     2 digits -> presicion 0.001
+      precision: Integer;
+
+      // TArray = [a, b, Xn, fa*fb, EAbs, ERel, EPorc]
+      TDataArray : Array[1..7] of string;
+    public
+      //fun : TParseMath; //* math function
+      constructor create();
+      destructor destroy();
+      function bolzanoTheorem(a: Double; b: Double): Double;
+      function bisectionMethod(a: Double; b:Double; e: Double; FExpression: string): Double;
+  end;
+
+//var fun: TParseMath; //* math function
+
+implementation
+
+//constructor TClosedMethods.create( fExpresion: string);
+constructor TClosedMethods.create();
+begin
+{*
+  fun := TParseMath.create();
+  fun.Expression:= fExpresion;
+  fun.AddVariable('x',0);
+//fun.AddVariable('x',0);
+  fun.Evaluate();
+  *}
+end;
+
+destructor TClosedMethods.destroy();
+begin
+end;
+
+function TClosedMethods.bolzanoTheorem(a: Double; b: Double): Double;
+var
+  fa: Double;
+  fb: Double;
+  bolzano: Double;
+begin
+  // verificar continuidad de la funcion en el intervalo [a,b]
+     //do something here!!!
+  // evalular signo
+  {*
+  fun.NewValue('x',a); fa:= fun.Evaluate();
+  fun.NewValue('x',b); fb:= fun.Evaluate();
+
+  bolzano:= fa*fb;
+  if bolzano < 0 then
+       Result := xn // return b
+    else
+      begin
+          if bolzano > 0 then
+             Result := xn // return a
+          else
+              eAbs:= 0 ; // STOP! variable xn is solution
+      end;
+    *}
+end;
+
+function TClosedMethods.bisectionMethod(a: Double; b:Double; e: Double; FExpression: string): Double;
+var
+  fun: TParseMath;
+  eAbs: Double; // absolute error
+  xn: Double; // xr
+  xnOld: Double; // last xr
+  bolzano: Double;
+  fxn: Double;
+  fa,fb,temp: Double;
+  signo: Double;
+  count: Integer;
+begin
+    {*
+    count:= 0;
+     fun := TParseMath.create();
+     fun.Expression:=FExpression;
+     fun.AddVariable('x',0); fun.Evaluate();
+
+  //Bisection method
+    eAbs:= 1000; // this is a trick, only for the first iteration
+    xnOld:= xn;
+    xn:= ((a+b)/2);
+    fun.NewValue('x',a); fa := fun.Evaluate();
+    fun.NewValue('x',b); fb := fun.Evaluate();
+    fun.NewValue('x',xn); fxn := fun.Evaluate();
+    bolzano:= fa*fb;
+    if ( bolzano> 0) then
+       ShowMessage('No cumple teorema de bolzano')
+    else
+    begin
+        if( bolzano = 0) then
+        begin
+            if(fa=0) then
+              ShowMessage(FloatToStr(a)+' es la solucion')
+            else
+              ShowMessage(FloatToStr(b)+' es la solucion');
+        end
+        else // bisection method
+
+        begin
+          while(eAbs > e) do
+          begin
+            count:= count+1;
+
+            signo := fa*fxn;
+            if( signo <0) then
+                b := xn
+            else
+            begin
+                 if( signo>0 ) then
+                     a:=xn;
+                 //else // what happen if fx=0 ? -> a or xn is solution
+            end;
+            xnOld:= xn;
+            xn:= (a+b)/2 ;
+            fun.NewValue('x',a); fa := fun.Evaluate();
+            fun.NewValue('x',xn); fxn := fun.Evaluate();
+
+            e:= abs(xn - xnOld);
+          end;
+        end;
+
+    end;
+    Result:=xn;
+    *}
+end;
+
+end.
+

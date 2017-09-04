@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\3.0.4\bin\x86_64-win64\fpc.exe" Date="1258652224"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq &quot;-FiC:\Users\cari_\Progra\AnalisisNumerico\series de taylor\lib\x86_64-win64&quot; -FuC:\Users\cari_\Progra\AnalisisNumerico\metodosNumericosCerrados &quot;-FuC:\Users\cari_\Progra\AnalisisNumerico\series de taylor\&quot; &quot;-FUC:\Users\cari_\Progra\AnalisisNumerico\series de taylor\lib\x86_64-win64\&quot; project1.lpr"/>
+</CONFIG>

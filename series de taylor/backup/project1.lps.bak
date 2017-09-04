@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="5">
+      <Unit0>
+        <Filename Value="project1.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="22"/>
+        <CursorPos X="10" Y="46"/>
+        <UsageCount Value="26"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="taylorserie.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="TaylorSerie"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="44"/>
+        <CursorPos X="10" Y="53"/>
+        <UsageCount Value="26"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\metodosNumericosCerrados\parsemath.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ParseMath"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="31"/>
+        <CursorPos X="21" Y="35"/>
+        <UsageCount Value="26"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\metodosNumericosCerrados\closedmethods.pas"/>
+        <UnitName Value="ClosedMethods"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\..\hello.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="15" Y="2"/>
+        <UsageCount Value="10"/>
+      </Unit4>
+    </Units>
+    <JumpHistory Count="14" HistoryIndex="13">
+      <Position1>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="56" Column="7" TopLine="34"/>
+      </Position1>
+      <Position2>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="67" Column="6" TopLine="38"/>
+      </Position2>
+      <Position3>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="68" Column="19" TopLine="39"/>
+      </Position3>
+      <Position4>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="29" Column="18" TopLine="12"/>
+      </Position4>
+      <Position5>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="53" Column="69" TopLine="21"/>
+      </Position5>
+      <Position6>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="72" Column="23" TopLine="43"/>
+      </Position6>
+      <Position7>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="19" Column="52" TopLine="2"/>
+      </Position7>
+      <Position8>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="52" Column="67" TopLine="18"/>
+      </Position8>
+      <Position9>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="13" Column="7"/>
+      </Position9>
+      <Position10>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="16" Column="28" TopLine="2"/>
+      </Position10>
+      <Position11>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="19" Column="35"/>
+      </Position11>
+      <Position12>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="11" Column="18"/>
+      </Position12>
+      <Position13>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="27" Column="26" TopLine="10"/>
+      </Position13>
+      <Position14>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="37" Column="18" TopLine="21"/>
+      </Position14>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
