@@ -103,9 +103,9 @@ begin
     fun.NewValue('x',xn); fxn := fun.Evaluate();
 
     //guardamos en la matriz Result.matrix
-    Result.matrix[0,0] := a;
-    Result.matrix[0,1] := b;
-    Result.matrix[0,0] := xn;
+    //Result.matrix[0,0] := a;
+    //Result.matrix[0,1] := b;
+    //Result.matrix[0,0] := xn;
     bolzano:= fa*fb;
     if ( bolzano> 0) then
        Result.result := FloatToStr(fa)+' '+ FloatToStr(fb)+' No cumple teorema de bolzano'

@@ -90,7 +90,7 @@ var
   i,j: Integer;
 begin
     i:= 0; j:= 0;
-    SetLength( Result.matrix, i+1, j+1 );
+    SetLength( Result.matrix, i+1 );
     fun := TParseMath.create();
     fun.Expression:=FExpression;
     fun.AddVariable('x',0); fun.Evaluate();
