@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\FPC\3.0.2\bin\i386-Win32\fpc.exe" Date="1246579621"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq &quot;-FiC:\Users\cari_\Progra\AnalisisNumerico\series de taylor\lib\i386-win32&quot; -FuC:\Users\cari_\Progra\AnalisisNumerico\metodosNumericosCerrados &quot;-FuC:\Users\cari_\Progra\AnalisisNumerico\series de taylor\&quot; &quot;-FUC:\Users\cari_\Progra\AnalisisNumerico\series de taylor\lib\i386-win32\&quot; project1.lpr"/>
+  <Complete Value="False"/>
+</CONFIG>

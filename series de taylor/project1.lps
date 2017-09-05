@@ -4,23 +4,23 @@
     <PathDelim Value="\"/>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="5">
+    <Units Count="6">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="10"/>
-        <CursorPos X="10" Y="46"/>
-        <UsageCount Value="26"/>
+        <TopLine Value="31"/>
+        <CursorPos X="17" Y="57"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="taylorserie.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="TaylorSerie"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="32" Y="53"/>
-        <UsageCount Value="26"/>
+        <CursorPos X="6" Y="9"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -30,7 +30,7 @@
         <EditorIndex Value="3"/>
         <TopLine Value="31"/>
         <CursorPos X="21" Y="35"/>
-        <UsageCount Value="26"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -39,7 +39,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="100"/>
         <CursorPos X="27" Y="114"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="11"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -48,8 +48,15 @@
         <CursorPos X="15" Y="2"/>
         <UsageCount Value="10"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="C:\lazarus\fpc\3.0.4\source\rtl\win\sysutils.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="31"/>
+        <CursorPos X="5" Y="48"/>
+        <UsageCount Value="10"/>
+      </Unit5>
     </Units>
-    <JumpHistory Count="14" HistoryIndex="13">
+    <JumpHistory Count="18" HistoryIndex="17">
       <Position1>
         <Filename Value="taylorserie.pas"/>
         <Caret Line="56" Column="7" TopLine="34"/>
@@ -106,6 +113,22 @@
         <Filename Value="taylorserie.pas"/>
         <Caret Line="37" Column="18" TopLine="21"/>
       </Position14>
+      <Position15>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="27" Column="46" TopLine="10"/>
+      </Position15>
+      <Position16>
+        <Filename Value="taylorserie.pas"/>
+        <Caret Line="84" Column="12" TopLine="51"/>
+      </Position16>
+      <Position17>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="51" Column="3" TopLine="31"/>
+      </Position17>
+      <Position18>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="58" Column="5" TopLine="27"/>
+      </Position18>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

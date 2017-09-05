@@ -10,6 +10,12 @@ uses
 type
     TArrayDouble = array of double;
 type
+    TResult = record
+      result: string;
+      matrix: array of array of real;
+    end;
+
+type
   TTaylorSerie = class
     private
       serie: TStringList;
@@ -18,6 +24,7 @@ type
     public
       constructor create();
       function exp(number: Double; e: Double): TStringList;
+      function sin(x: Double; e: Double): TResult;
 
   end;
 
@@ -72,6 +79,30 @@ begin
   end;
 
   Result := listSerie;
+end;
+
+function TTaylorSerie.sin(x: double; e: double): TResult;
+var
+  eAbs, res, xn, xn_1: Double;
+  k: Integer;
+
+begin
+  eAbs := 100000000;
+  k:= 0;
+  res := 0;
+  xn := ( power(-1,k)/factorial(2*k+1)) * power(x,2*k+1);
+  res := res + xn;
+  k := k+1;
+
+  while( e < eAbs) do
+  begin
+    xn_1 := res;
+    xn := ( power(-1,k)/factorial(2*k+1)) * power(x,2*k+1);
+    res := res + xn;
+    eAbs := res - xn_1;
+
+  end;
+  Result.result := FloatToStr( res );
 end;
 
 end.

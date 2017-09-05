@@ -8,6 +8,11 @@ uses
   {$ENDIF}{$ENDIF}
   Classes, SysUtils, CustApp, TaylorSerie, ParseMath
   { you can add units after this };
+type
+    TResult = record
+      result: string;
+      matrix: array of array of real;
+    end;
 
 type
 
@@ -30,6 +35,7 @@ var
   a: TTaylorSerie;
   serie: TStringList;
   i : Integer;
+  res: TResult;
 begin
   // quick check parameters
   ErrorMsg:=CheckOptions('h', 'help');
@@ -48,10 +54,8 @@ begin
 
   { add your program here }
   a := TTaylorSerie.Create;
-  serie := a.exp(5,0.01);
-
-  for i:= 0 to serie.Count do
-      WriteLn(serie[i]);
+  x := ReadLn();
+//  res := a.sin()
 
   // stop program loop
   Terminate;
