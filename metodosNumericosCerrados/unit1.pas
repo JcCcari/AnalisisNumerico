@@ -64,8 +64,9 @@ var
   a,b,e: Double;
   fExpression: string;
   res : TResult;
-  i: Integer;
-  ma: array of string;
+  i,j: Integer;
+  ma: array of array of string;
+
 begin
   // (x/ln(x))+ power( 2.71828182845904523536,x-1) - 10
   // (667.38/x )* (1-power( 2.71828182845904523536,-0,146847*x)) -40
@@ -77,13 +78,54 @@ begin
   closed:= TClosedMethods.create();
   res := closed.bisectionMethod(a, b, e, fExpression);
   Memo1.Lines.Add(res.result);
+  ma := res.matrix;
   Memo1.Lines.Add(IntToStr(Length(res.matrix)));
-
+  Memo1.Lines.Add(IntToStr(Length(res.matrix[0])));
+  //StringGrid1.ColCount:= Length(ma);
+  for i:= 0 to Length(ma)-1 do
+  begin
+    StringGrid1.RowCount:= StringGrid1.RowCount+1;
+    for j:=0 to Length(ma[0])-1 do
+    begin
+         StringGrid1.Cells[j+1,i+1] := ma[i,j];
+    end;
+  end;
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
-begin
+var
+  closed: TClosedMethods;
+  temp: string;
+  a,b,e: Double;
+  fExpression: string;
+  res : TResult;
+  i,j: Integer;
+  ma: array of array of string;
 
+begin
+  // (x/ln(x))+ power( 2.71828182845904523536,x-1) - 10
+  // (667.38/x )* (1-power( 2.71828182845904523536,-0,146847*x)) -40
+  // sin(x) +(power(x,2)/(x-1)) +3
+  fExpression := Edit5.Text;
+  a:= StrToFloat(Edit6.Text);
+  b:= StrToFloat(Edit7.Text);
+  e:= StrToFloat(Edit8.Text);
+
+  closed:= TClosedMethods.create();
+  res := closed.fakePositionMethod(a, b, e, fExpression);
+  //Memo1.Lines.Add(res.result);
+  ma := res.matrix;
+  //Memo1.Lines.Add(IntToStr(Length(res.matrix)));
+  //Memo1.Lines.Add(IntToStr(Length(res.matrix[0])));
+  //StringGrid1.ColCount:= Length(ma);
+  for i:= 0 to Length(ma)-1 do
+  begin
+    StringGrid2.RowCount:= StringGrid2.RowCount+1;
+    for j:=0 to Length(ma[0])-1 do
+    begin
+         StringGrid2.Cells[j+1,i+1] := ma[i,j];
+    end;
+  end;
 end;
 
 end.

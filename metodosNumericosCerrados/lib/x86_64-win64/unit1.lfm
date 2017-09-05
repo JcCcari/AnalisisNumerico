@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 59
+  Left = 225
   Height = 440
-  Top = 120
+  Top = 155
   Width = 819
   Caption = 'Form1'
   ClientHeight = 440
@@ -20,8 +20,8 @@ object Form1: TForm1
     Height = 372
     Top = 53
     Width = 799
-    ActivePage = Biseccion
-    TabIndex = 0
+    ActivePage = FalsaPosicion
+    TabIndex = 1
     TabOrder = 1
     object Biseccion: TTabSheet
       Caption = 'Biseccion'
@@ -85,17 +85,18 @@ object Form1: TForm1
         Left = 8
         Height = 226
         Top = 96
-        Width = 456
+        Width = 560
         ColCount = 8
+        RowCount = 1
         TabOrder = 4
         ColWidths = (
           19
-          54
-          56
-          64
-          47
-          76
-          64
+          68
+          74
+          74
+          78
+          81
+          87
           72
         )
         Cells = (
@@ -127,10 +128,10 @@ object Form1: TForm1
         )
       end
       object Memo1: TMemo
-        Left = 490
+        Left = 568
         Height = 217
         Top = 78
-        Width = 286
+        Width = 208
         Lines.Strings = (
           'Memo1'
         )
@@ -155,7 +156,7 @@ object Form1: TForm1
     object FalsaPosicion: TTabSheet
       Caption = 'FalsaPosicion'
       ClientHeight = 344
-      ClientWidth = 687
+      ClientWidth = 791
       object Label4: TLabel
         Left = 12
         Height = 15
@@ -206,18 +207,19 @@ object Form1: TForm1
         Left = 8
         Height = 226
         Top = 96
-        Width = 456
+        Width = 650
         ColCount = 8
+        RowCount = 1
         TabOrder = 2
         ColWidths = (
           19
-          54
-          56
-          64
-          47
+          82
+          87
+          93
+          90
           76
-          64
-          72
+          73
+          86
         )
         Cells = (
           8

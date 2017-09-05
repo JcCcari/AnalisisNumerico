@@ -10,7 +10,7 @@ uses
 type
     TResult = record
       result: string;
-      matrix: array of array of string;
+      matrix: array of string;
     end;
 
 implementation

@@ -27,7 +27,7 @@ type
       destructor destroy();
       function bolzanoTheorem(a: Double; b: Double): Double;
       function bisectionMethod(a: Double; b:Double; e: Double; FExpression: string): TResult;
-      function fakePositionMethod(a: double; b: double; e: double; FExpression: string): double;
+      function fakePositionMethod(a: double; b: double; e: double; FExpression: string): TResult;
   end;
 
 //var fun: TParseMath; //* math function
@@ -89,8 +89,8 @@ var
   res : string;
   i,j: Integer;
 begin
-    i:= 0; j:= 0;
-    SetLength( Result.matrix, i+1, j+1 );
+    i:= 1; j:= 0;
+    SetLength( Result.matrix, i+1,5);
     fun := TParseMath.create();
     fun.Expression:=FExpression;
     fun.AddVariable('x',0); fun.Evaluate();
@@ -101,11 +101,13 @@ begin
     fun.NewValue('x',a); fa := fun.Evaluate();
     fun.NewValue('x',b); fb := fun.Evaluate();
     fun.NewValue('x',xn); fxn := fun.Evaluate();
-
+    signo := fa*fxn;
     //guardamos en la matriz Result.matrix
-    //Result.matrix[0,0] := a;
-    //Result.matrix[0,1] := b;
-    //Result.matrix[0,0] := xn;
+    Result.matrix[0,0] := FloatToStr(a);
+    Result.matrix[0,1] := FloatToStr(b);
+    Result.matrix[0,2] := FloatToStr(xn);
+    Result.matrix[0,3] := FloatToStr(signo);
+    Result.matrix[0,4] := '-';
     bolzano:= fa*fb;
     if ( bolzano> 0) then
        Result.result := FloatToStr(fa)+' '+ FloatToStr(fb)+' No cumple teorema de bolzano'
@@ -128,11 +130,10 @@ begin
         begin
           while( (e<eAbs) and (fa<>0) ) do
           begin
-            i:= i +1;
-            SetLength( Result.matrix,i+1 );
-            result.matrix[i] := IntToStr(i);
+            i:= i +1 ;
+            SetLength( Result.matrix,i,5);
 
-            signo := fa*fxn;
+            //signo := fa*fxn;
             if( signo <0) then
                 b := xn
             else
@@ -141,14 +142,109 @@ begin
             xn:= (a+b)/2 ;
             fun.NewValue('x',a); fa := fun.Evaluate();
             fun.NewValue('x',xn); fxn := fun.Evaluate();
+            signo := fa*fxn;
             eAbs:= abs(xn - xn_1);
-          end;
+
+            //guardamos en la matriz Result.matrix
+
+            Result.matrix[i-1,0] := FloatToStr(a);
+            Result.matrix[i-1,1] := FloatToStr(b);
+            Result.matrix[i-1,2] := FloatToStr(xn);
+            Result.matrix[i-1,3] := FloatToStr(signo);
+            Result.matrix[i-1,4] := FloatToStr(eAbs);
+
+            end;
         end;
 
     end;
     Result.result:=Result.result + FloatToStr(xn);
 end;
 
+function TClosedMethods.fakePositionMethod(a: Double; b:Double; e: Double; FExpression: string ): TResult ;
+var
+  fun: TParseMath;
+  eAbs: Double; // absolute error
+  xn: Double; // xr
+  xn_1: Double; // last xr
+  bolzano: Double;
+  fxn: Double;
+  fa,fb,temp: Double;
+  signo: Double;
+  res : string;
+  i,j: Integer;
+begin
+    i:= 1; j:= 0;
+    SetLength( Result.matrix, i+1,5);
+    fun := TParseMath.create();
+    fun.Expression:=FExpression;
+    fun.AddVariable('x',0); fun.Evaluate();
+  //Bisection method
+    eAbs:= 1000000; // this is a trick, only for the first iteration
+    //xnOld:= xn;
+
+    fun.NewValue('x',a); fa := fun.Evaluate();
+    fun.NewValue('x',b); fb := fun.Evaluate();
+    fun.NewValue('x',xn); fxn := fun.Evaluate();
+    xn:= (a-( (fa*(b-a))/(fb-fa) ) );
+    signo := fa*fxn;
+    //guardamos en la matriz Result.matrix
+    Result.matrix[0,0] := FloatToStr(a);
+    Result.matrix[0,1] := FloatToStr(b);
+    Result.matrix[0,2] := FloatToStr(xn);
+    Result.matrix[0,3] := FloatToStr(signo);
+    Result.matrix[0,4] := '-';
+    bolzano:= fa*fb;
+    if ( bolzano> 0) then
+       Result.result := FloatToStr(fa)+' '+ FloatToStr(fb)+' No cumple teorema de bolzano'
+    else
+    begin
+        if( bolzano = 0) then
+        begin
+            if(fa=0) then
+              Result.result := FloatToStr(a) +' es la solucion 1'
+            else
+            begin
+                if( fb=0) then
+                    Result.result := FloatToStr(b)+' es la solucion 2'
+                else
+                    if (fxn=0) then
+                    Result.result := FloatToStr(xn) +' es la solucion 3' ;
+            end;
+        end
+        else // bisection method
+        begin
+          while( (e<eAbs) and (fa<>0) ) do
+          begin
+            i:= i +1 ;
+            SetLength( Result.matrix,i,5);
+
+            //signo := fa*fxn;
+            if( signo <0) then
+                b := xn
+            else
+                a:=xn;
+            xn_1:= xn;
+            fun.NewValue('x',a); fa := fun.Evaluate();
+            fun.NewValue('x',xn); fxn := fun.Evaluate();
+            xn:= (a-( (fa*(b-a))/(fb-fa) ) );
+            signo := fa*fxn;
+            eAbs:= abs(xn - xn_1);
+
+            //guardamos en la matriz Result.matrix
+
+            Result.matrix[i-1,0] := FloatToStr(a);
+            Result.matrix[i-1,1] := FloatToStr(b);
+            Result.matrix[i-1,2] := FloatToStr(xn);
+            Result.matrix[i-1,3] := FloatToStr(signo);
+            Result.matrix[i-1,4] := FloatToStr(eAbs);
+
+            end;
+        end;
+
+    end;
+    Result.result:=Result.result + FloatToStr(xn);
+end;
+{*
 function TClosedMethods.fakePositionMethod(a: double; b: double; e: double; FExpression: string): double;
 var
   fun: TParseMath;
@@ -214,5 +310,6 @@ begin
     end;
     Result:=xn;
 end;
+*}
 end.
 
