@@ -41,11 +41,12 @@ var
    x, e: Double;
    i,j : Integer;
 begin
-
+  StringGrid1.Clean;
   x := StrToFloat(Edit1.Text);
   e := StrToFloat(Edit2.Text);
   taylor := TTaylorSerie.create();
   res := taylor.sin(x,e);
+  //Memo1.Lines.Add('Precision: '+ IntToStr(taylor.getPresicion(e)));
 
   Memo1.Lines.Add(res.result);
   Memo1.Lines.add(IntToStr(Length(res.matrix))+ ' ' + IntToStr(Length(res.matrix[0])));
@@ -56,6 +57,8 @@ begin
     for j:=0 to Length(res.matrix[0])-1 do
         StringGrid1.Cells[j,i+1] := res.matrix[i,j];
   end;
+
+
 end;
 
 end.
