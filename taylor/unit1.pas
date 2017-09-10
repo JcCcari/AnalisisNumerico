@@ -16,7 +16,14 @@ type
     Button1: TButton;
     Edit1: TEdit;
     Edit2: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
     Memo1: TMemo;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    RadioButton3: TRadioButton;
+    RadioButton4: TRadioButton;
+    RadioButton5: TRadioButton;
     StringGrid1: TStringGrid;
     procedure Button1Click(Sender: TObject);
   private
@@ -45,13 +52,17 @@ begin
   x := StrToFloat(Edit1.Text);
   e := StrToFloat(Edit2.Text);
   taylor := TTaylorSerie.create();
-  res := taylor.sin(x,e);
+  if RadioButton1.Checked then
+    res := taylor.sin(x,e);
+  if RadioButton2.Checked then
+    res := taylor.cos(x,e);
   //Memo1.Lines.Add('Precision: '+ IntToStr(taylor.getPresicion(e)));
 
   Memo1.Lines.Add(res.result);
   Memo1.Lines.add(IntToStr(Length(res.matrix))+ ' ' + IntToStr(Length(res.matrix[0])));
   StringGrid1.RowCount:= Length(res.matrix)+1;
   StringGrid1.ColCount:= Length(res.matrix[0])+1;
+
   for i:=0 to Length(res.matrix)-1 do
   begin
     for j:=0 to Length(res.matrix[0])-1 do

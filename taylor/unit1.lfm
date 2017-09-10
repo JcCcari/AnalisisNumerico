@@ -1,16 +1,16 @@
 object Form1: TForm1
-  Left = 183
-  Height = 449
-  Top = 136
+  Left = 246
+  Height = 479
+  Top = 170
   Width = 720
   Caption = 'Form1'
-  ClientHeight = 449
+  ClientHeight = 479
   ClientWidth = 720
   LCLVersion = '1.6.4.0'
   object StringGrid1: TStringGrid
-    Left = 32
+    Left = 24
     Height = 299
-    Top = 104
+    Top = 144
     Width = 441
     RowCount = 1
     TabOrder = 0
@@ -41,36 +41,93 @@ object Form1: TForm1
     )
   end
   object Edit1: TEdit
-    Left = 136
+    Left = 112
     Height = 37
-    Top = 48
+    Top = 72
     Width = 80
     TabOrder = 1
   end
   object Button1: TButton
-    Left = 448
+    Left = 552
     Height = 50
-    Top = 40
+    Top = 48
     Width = 136
-    Caption = 'Button1'
+    Caption = 'CALCULAR'
     OnClick = Button1Click
     TabOrder = 2
   end
   object Edit2: TEdit
-    Left = 328
+    Left = 304
     Height = 37
-    Top = 48
+    Top = 72
     Width = 79
     TabOrder = 3
   end
   object Memo1: TMemo
     Left = 528
-    Height = 156
-    Top = 160
+    Height = 264
+    Top = 176
     Width = 170
     Lines.Strings = (
       'Memo1'
     )
     TabOrder = 4
+  end
+  object Label1: TLabel
+    Left = 48
+    Height = 20
+    Top = 83
+    Width = 53
+    Caption = 'Angulo :'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 245
+    Height = 20
+    Top = 85
+    Width = 54
+    Caption = 'ERROR :'
+    ParentColor = False
+  end
+  object RadioButton1: TRadioButton
+    Left = 427
+    Height = 24
+    Top = 15
+    Width = 44
+    Caption = 'sin'
+    Checked = True
+    TabOrder = 5
+  end
+  object RadioButton2: TRadioButton
+    Left = 427
+    Height = 24
+    Top = 42
+    Width = 48
+    Caption = 'cos'
+    TabOrder = 6
+  end
+  object RadioButton3: TRadioButton
+    Left = 427
+    Height = 24
+    Top = 69
+    Width = 112
+    Caption = 'RadioButton3'
+    TabOrder = 7
+  end
+  object RadioButton4: TRadioButton
+    Left = 427
+    Height = 24
+    Top = 96
+    Width = 112
+    Caption = 'RadioButton4'
+    TabOrder = 8
+  end
+  object RadioButton5: TRadioButton
+    Left = 427
+    Height = 24
+    Top = 121
+    Width = 112
+    Caption = 'RadioButton5'
+    TabOrder = 9
   end
 end
