@@ -11,6 +11,9 @@ type
     TStringMatrix = array of array of string;
 
 type
+    TFunctionTaylor = function(x: double; e: double): TResult;
+
+type
   TTaylorSerie = class
     private
       serie: TStringList;
@@ -127,8 +130,8 @@ begin
 
     //eAbs := StrToFloat( FormatFloat(getZerosStr(digits),eAbs) );
   end;
-  Result.result := FloatToStr(sign*res);
-  //Result.result := FloatToStr( res );
+  //Result.result := FloatToStr(sign*res);
+  Result.result := FormatFloat( ePrecisionStr, sign*res);
   Result.matrix := resMatrix;
 end;
 
@@ -175,14 +178,63 @@ begin
 
     //eAbs := StrToFloat( FormatFloat(getZerosStr(digits),eAbs) );
   end;
-  Result.result := FloatToStr( sign*res );
-  //Result.result := FloatToStr( res );
+  //Result.result := FloatToStr( sign*res );
+  Result.result := FormatFloat( ePrecisionStr, sign*res);
   Result.matrix := resMatrix;
 end;
 
 function TTaylorSerie.ln(x: Double; e: Double): TResult;
+var
+  eAbs, res, xn, xn_1: Double;
+  k: Integer;
+  resMatrix : TStringMatrix;
+  digits: Integer; // digits of precision
+  ePrecisionStr: string;
+  eStr: string;
+  sign: Integer; // it only will take values +1 or -1
 begin
+  if (x <= 0) then
+  begin
+       Result.result:= 'NO'; // No cumple con el dominio
+       exit;
+  end;
 
+  digits:= getPresicion(e) ;
+  ePrecisionStr:= getZerosStr(digits);
+  //sign:=getSign(x);
+
+  //x := trunc(x) mod (180);
+  //x := radToGrad(x);
+  eAbs := 100000000;
+  k:= 0;
+  res := 0;
+  xn := ( 1/(2*k+1)*( power( (power(x,2)-1)/(power(x,2)+1) ,2*k+1)) );
+  res := res + xn;
+  SetLength(resMatrix,1,4);
+  resMatrix[0,0] := '0';
+  resMatrix[0,1] := FloatToStr(res);
+  resMatrix[0,2] := '-';
+  k := k+1;
+  while( e <= eAbs) do
+  begin
+    xn_1 := res;
+    xn := ( 1/(2*k+1)*( power( (power(x,2)-1)/(power(x,2)+1) ,2*k+1)) );
+    res := res + xn;
+    eAbs := abs(res - xn_1);
+
+    // Filling matrix with data
+    SetLength(resMatrix,k+1,4);
+    resMatrix[k,0] := IntToStr(k);
+    resMatrix[k,1] := FloatToStr(res);
+    resMatrix[k,2] := FloatToStr(eAbs);
+    resMatrix[k,3] := FloatToStr(abs((res - xn_1)/res));
+    k := k+1;
+
+    //eAbs := StrToFloat( FormatFloat(getZerosStr(digits),eAbs) );
+  end;
+  //Result.result := FloatToStr( sign*res );
+  Result.result := FormatFloat( ePrecisionStr, res);
+  Result.matrix := resMatrix;
 end;
 
 function TTaylorSerie.arctanh(x: Double; e: Double): TResult;

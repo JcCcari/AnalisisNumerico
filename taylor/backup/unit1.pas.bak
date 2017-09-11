@@ -55,11 +55,13 @@ begin
   if RadioButton1.Checked then
     res := taylor.sin(x,e);
   if RadioButton2.Checked then
-    res := taylor.sin(x,e);
+    res := taylor.cos(x,e);
+  if RadioButton3.Checked then
+    res := taylor.ln(x,e);
   //Memo1.Lines.Add('Precision: '+ IntToStr(taylor.getPresicion(e)));
 
   Memo1.Lines.Add(res.result);
-  Memo1.Lines.add(IntToStr(Length(res.matrix))+ ' ' + IntToStr(Length(res.matrix[0])));
+  //Memo1.Lines.add(IntToStr(Length(res.matrix))+ ' ' + IntToStr(Length(res.matrix[0])));
   StringGrid1.RowCount:= Length(res.matrix)+1;
   StringGrid1.ColCount:= Length(res.matrix[0])+1;
 
