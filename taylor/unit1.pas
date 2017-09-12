@@ -49,6 +49,7 @@ var
    i,j : Integer;
 begin
   StringGrid1.Clean;
+  {*
   x := StrToFloat(Edit1.Text);
   e := StrToFloat(Edit2.Text);
   taylor := TTaylorSerie.create();
@@ -58,12 +59,16 @@ begin
     res := taylor.cos(x,e);
   if RadioButton3.Checked then
     res := taylor.ln(x,e);
+  if RadioButton4.Checked then
+    res := taylor.arctanh(x,e);
+  if RadioButton5.Checked then
+    res := taylor.sinh(x,e);
   //Memo1.Lines.Add('Precision: '+ IntToStr(taylor.getPresicion(e)));
 
   Memo1.Lines.Add(res.result);
-  //Memo1.Lines.add(IntToStr(Length(res.matrix))+ ' ' + IntToStr(Length(res.matrix[0])));
+  Memo1.Lines.add(IntToStr(Length(res.matrix))+ ' ' + IntToStr(Length(res.matrix[0])));
 
-  if (res.result <> 'NO')then
+  if ( (res.result <> 'NO') or (res.result='') )then
   begin
       StringGrid1.RowCount:= Length(res.matrix)+1;
       StringGrid1.ColCount:= Length(res.matrix[0])+1;
@@ -74,8 +79,9 @@ begin
             StringGrid1.Cells[j,i+1] := res.matrix[i,j];
       end;
   end;
-
-
+  *}
+  for i:=0 to 15 do
+      Memo1.Lines.Add( IntToStr(taylor.factorial(i)));
 end;
 
 end.
