@@ -24,7 +24,7 @@ type
   function determinant(m1: t_matrix; n:integer): float;
   function transposed(m1: t_matrix): t_matrix;
   function multiplyByNumber(m1: t_matrix; x: Double): t_matrix;
-  function power(m1: t_matrix; x: Integer): t_matrix;
+  function powerMatrix(m1: t_matrix; x: Integer): t_matrix;
 
 end;
 
@@ -219,7 +219,7 @@ for p:=0 to n-1 do
         end;
      end;
     end;
-    dete:=dete+m1[0][p]*power(-1,p)*determinant(temp,n-1);
+    dete:=dete+m1[0][p]* power(-1,p) * determinant(temp,n-1);
   end;
   determinant:=dete;
 end;
@@ -259,14 +259,14 @@ begin
      Result:= res;
 end;
 
-function TMatrix.power(m1: t_matrix; x: Integer): t_matrix;
+function TMatrix.powerMatrix(m1: t_matrix; x: Integer): t_matrix;
 var
   res : t_matrix;
   i,j: Integer;
 begin
      SetLength(res, Length(m1), Length(m1[0]) );
      res := m1;
-     for i:=0 to x-1 do
+     for i:=0 to x-1-1 do
          res := multiply(res,m1);
 
      Result := res;

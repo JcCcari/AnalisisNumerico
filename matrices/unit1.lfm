@@ -1,10 +1,10 @@
 object Form1: TForm1
-  Left = 104
-  Height = 450
-  Top = 169
+  Left = 184
+  Height = 487
+  Top = 163
   Width = 1001
   Caption = 'Form1'
-  ClientHeight = 450
+  ClientHeight = 487
   ClientWidth = 1001
   LCLVersion = '1.6.4.0'
   object StringGrid1: TStringGrid
@@ -34,9 +34,9 @@ object Form1: TForm1
     TabOrder = 1
   end
   object StringGrid3: TStringGrid
-    Left = 760
+    Left = 744
     Height = 184
-    Top = 64
+    Top = 88
     Width = 208
     AutoEdit = False
     ColCount = 0
@@ -72,17 +72,17 @@ object Form1: TForm1
     ParentColor = False
   end
   object Label3: TLabel
-    Left = 696
+    Left = 680
     Height = 20
-    Top = 149
+    Top = 173
     Width = 59
     Caption = 'Result = '
     ParentColor = False
   end
   object RadioButton1: TRadioButton
-    Left = 568
+    Left = 560
     Height = 24
-    Top = 120
+    Top = 80
     Width = 62
     Caption = 'A + B'
     Checked = True
@@ -90,33 +90,33 @@ object Form1: TForm1
     TabStop = True
   end
   object RadioButton2: TRadioButton
-    Left = 568
+    Left = 560
     Height = 24
-    Top = 157
+    Top = 117
     Width = 58
     Caption = 'A - B'
     TabOrder = 5
   end
   object RadioButton3: TRadioButton
-    Left = 568
+    Left = 560
     Height = 24
-    Top = 194
+    Top = 154
     Width = 60
     Caption = 'A * B'
     TabOrder = 6
   end
   object RadioButton4: TRadioButton
-    Left = 568
+    Left = 560
     Height = 24
-    Top = 234
+    Top = 194
     Width = 66
     Caption = 'A^(-1)'
     TabOrder = 7
   end
   object RadioButton5: TRadioButton
-    Left = 568
+    Left = 560
     Height = 24
-    Top = 272
+    Top = 232
     Width = 66
     Caption = 'det(A)'
     TabOrder = 8
@@ -210,9 +210,9 @@ object Form1: TForm1
     ParentFont = False
   end
   object RadioButton6: TRadioButton
-    Left = 568
+    Left = 560
     Height = 24
-    Top = 304
+    Top = 264
     Width = 60
     Caption = 'A^(T)'
     TabOrder = 15
@@ -226,5 +226,36 @@ object Form1: TForm1
       'Memo1'
     )
     TabOrder = 16
+  end
+  object RadioButton7: TRadioButton
+    Left = 560
+    Height = 24
+    Top = 292
+    Width = 59
+    Caption = 'n * A'
+    TabOrder = 17
+  end
+  object RadioButton8: TRadioButton
+    Left = 560
+    Height = 24
+    Top = 325
+    Width = 68
+    Caption = 'A ^ (n)'
+    TabOrder = 18
+  end
+  object Edit5: TEdit
+    Left = 252
+    Height = 37
+    Top = 424
+    Width = 80
+    TabOrder = 19
+  end
+  object Label9: TLabel
+    Left = 224
+    Height = 20
+    Top = 434
+    Width = 22
+    Caption = 'n ='
+    ParentColor = False
   end
 end
