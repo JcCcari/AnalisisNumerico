@@ -5,7 +5,7 @@ unit ClosedMethods;
 interface
 
 uses
-  Classes, SysUtils, Dialogs, ParseMath, mResult;
+  Classes, SysUtils, Dialogs,math ,ParseMath, mResult;
 type
     Tarraystring = array of string;
 type
@@ -102,15 +102,26 @@ begin
     fun.NewValue('x',b); fb := fun.Evaluate();
     fun.NewValue('x',xn); fxn := fun.Evaluate();
     signo := fa*fxn;
+    // Comprobamos bolzano
+    if( fa=infinity) or (fxn=infinity) then
+    begin
+         Result.result := 'NC'; // No Continuo -> no cumple bolzano
+         exit;
+    end;
     //guardamos en la matriz Result.matrix
     Result.matrix[0,0] := FloatToStr(a);
     Result.matrix[0,1] := FloatToStr(b);
     Result.matrix[0,2] := FloatToStr(xn);
     Result.matrix[0,3] := FloatToStr(signo);
     Result.matrix[0,4] := '-';
+    //////
+
     bolzano:= fa*fb;
     if ( bolzano> 0) then
-       Result.result := FloatToStr(fa)+' '+ FloatToStr(fb)+' No cumple teorema de bolzano'
+    begin
+       Result.result := FloatToStr(fa)+' , '+ FloatToStr(fb)+' No cumple teorema de bolzano';
+       exit;
+    end
     else
     begin
         if( bolzano = 0) then
@@ -144,6 +155,12 @@ begin
             fun.NewValue('x',xn); fxn := fun.Evaluate();
             signo := fa*fxn;
             eAbs:= abs(xn - xn_1);
+
+            if( fa=infinity) or (fxn=infinity) then
+            begin
+                Result.result := 'NC'; // No Continuo -> no cumple bolzano
+                exit;
+            end;
 
             //guardamos en la matriz Result.matrix
 
@@ -187,6 +204,13 @@ begin
     fun.NewValue('x',xn); fxn := fun.Evaluate();
     xn:= (a-( (fa*(b-a))/(fb-fa) ) );
     signo := fa*fxn;
+
+    // Comprobamos bolzano
+    if( fa=infinity) or (fxn=infinity) then
+    begin
+         Result.result := 'NC'; // No Continuo -> no cumple bolzano
+         exit;
+    end;
     //guardamos en la matriz Result.matrix
     Result.matrix[0,0] := FloatToStr(a);
     Result.matrix[0,1] := FloatToStr(b);
@@ -195,7 +219,10 @@ begin
     Result.matrix[0,4] := '-';
     bolzano:= fa*fb;
     if ( bolzano> 0) then
-       Result.result := FloatToStr(fa)+' '+ FloatToStr(fb)+' No cumple teorema de bolzano'
+    begin
+       Result.result := FloatToStr(fa)+' , '+ FloatToStr(fb)+' No cumple teorema de bolzano';
+       exit;
+    end
     else
     begin
         if( bolzano = 0) then
@@ -231,6 +258,12 @@ begin
             signo := fa*fxn;
             eAbs:= abs(xn - xn_1);
 
+            if( fa=infinity) or (fxn=infinity) then
+            begin
+                Result.result := 'NC'; // No Continuo -> no cumple bolzano
+                exit;
+            end;
+
             //guardamos en la matriz Result.matrix
 
             Result.matrix[i-1,0] := FloatToStr(a);
@@ -245,72 +278,6 @@ begin
     end;
     Result.result:=Result.result + FloatToStr(xn);
 end;
-{*
-function TClosedMethods.fakePositionMethod(a: double; b: double; e: double; FExpression: string): double;
-var
-  fun: TParseMath;
-  eAbs: Double; // absolute error
-  xn: Double; // xr
-  xnOld: Double; // last xr
-  bolzano: Double;
-  fxn: Double;
-  fa,fb,temp: Double;
-  signo: Double;
-  count: Integer;
-begin
 
-    count:= 0;
-     fun := TParseMath.create();
-     fun.Expression:=FExpression;
-     fun.AddVariable('x',0); fun.Evaluate();
-
-  //Bisection method
-    eAbs:= 1000; // this is a trick, only for the first iteration
-    xnOld:= xn;
-    fun.NewValue('x',a); fa := fun.Evaluate();
-    fun.NewValue('x',b); fb := fun.Evaluate();
-    fun.NewValue('x',xn); fxn := fun.Evaluate();
-    xn:= (a-( (fa*(b-a))/(fb-fa) ) );
-    bolzano:= fa*fb;
-    if ( bolzano> 0) then
-       ShowMessage(FloatToStr(fa)+' '+ FloatToStr(fb)+' No cumple teorema de bolzano')
-    else
-    begin
-        if( bolzano = 0) then
-        begin
-            if(fa=0) then
-              ShowMessage(FloatToStr(a)+' es la solucion')
-            else
-              ShowMessage(FloatToStr(b)+' es la solucion');
-        end
-        else // bisection method
-
-        begin
-          while(eAbs > e) do
-          begin
-            count:= count+1;
-
-            signo := fa*fxn;
-            if( signo <0) then
-                b := xn
-            else
-            begin
-                 if( signo>0 ) then
-                     a:=xn;
-                 //else // what happen if fx=0 ? -> a or xn is solution
-            end;
-            xnOld:= xn;
-            xn:= (a-( (fa*(b-a))/(fb-fa) ) );
-            fun.NewValue('x',a); fa := fun.Evaluate();
-            fun.NewValue('x',xn); fxn := fun.Evaluate();
-
-            eAbs:= abs(xn - xnOld);
-          end;
-        end;
-
-    end;
-    Result:=xn;
-end;
-*}
 end.
 

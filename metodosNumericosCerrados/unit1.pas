@@ -31,6 +31,7 @@ type
       Label6: TLabel;
       Label7: TLabel;
       Memo1: TMemo;
+      Memo2: TMemo;
       PageControl1: TPageControl;
       StaticText1: TStaticText;
       Biseccion: TTabSheet;
@@ -68,19 +69,23 @@ var
   ma: array of array of string;
 
 begin
+  //StringGrid1.Clear;
   // (x/ln(x))+ power( 2.71828182845904523536,x-1) - 10
   // (667.38/x )* (1-power( 2.71828182845904523536,-0,146847*x)) -40
   // sin(x) +(power(x,2)/(x-1)) +3
+  //power( 2.71828182845904523536,x) +x-2
+  // ln(sen(x))+1
+  // 0.7*x*power( 2.71828182845904523536,(-98/x))+0.7*x-35
   fExpression := Edit4.Text;
   a:= StrToFloat(Edit1.Text);
   b:= StrToFloat(Edit2.Text);
   e:= StrToFloat(Edit3.Text);
   closed:= TClosedMethods.create();
   res := closed.bisectionMethod(a, b, e, fExpression);
-  Memo1.Lines.Add(res.result);
+  Memo1.Lines.Add('Res: ' +res.result);
   ma := res.matrix;
-  Memo1.Lines.Add(IntToStr(Length(res.matrix)));
-  Memo1.Lines.Add(IntToStr(Length(res.matrix[0])));
+  //Memo1.Lines.Add(IntToStr(Length(res.matrix)));
+  //Memo1.Lines.Add(IntToStr(Length(res.matrix[0])));
   //StringGrid1.ColCount:= Length(ma);
   for i:= 0 to Length(ma)-1 do
   begin
@@ -113,7 +118,7 @@ begin
 
   closed:= TClosedMethods.create();
   res := closed.fakePositionMethod(a, b, e, fExpression);
-  //Memo1.Lines.Add(res.result);
+  Memo2.Lines.Add(res.result);
   ma := res.matrix;
   //Memo1.Lines.Add(IntToStr(Length(res.matrix)));
   //Memo1.Lines.Add(IntToStr(Length(res.matrix[0])));

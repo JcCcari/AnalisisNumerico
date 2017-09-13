@@ -1,74 +1,74 @@
 object Form1: TForm1
-  Left = 225
-  Height = 440
-  Top = 155
-  Width = 819
+  Left = 129
+  Height = 523
+  Top = 143
+  Width = 955
   Caption = 'Form1'
-  ClientHeight = 440
-  ClientWidth = 819
-  LCLVersion = '1.8.0.4'
+  ClientHeight = 523
+  ClientWidth = 955
+  LCLVersion = '1.6.4.0'
   object StaticText1: TStaticText
     Left = 152
     Height = 32
-    Top = 16
+    Top = 24
     Width = 315
     Caption = 'METODOS CERRADOS'
     TabOrder = 0
   end
   object PageControl1: TPageControl
     Left = 8
-    Height = 372
+    Height = 452
     Top = 53
-    Width = 799
+    Width = 936
     ActivePage = FalsaPosicion
     TabIndex = 1
     TabOrder = 1
     object Biseccion: TTabSheet
       Caption = 'Biseccion'
-      ClientHeight = 344
-      ClientWidth = 791
+      ClientHeight = 418
+      ClientWidth = 926
       object Label1: TLabel
         Left = 32
-        Height = 15
+        Height = 20
         Top = 56
-        Width = 8
+        Width = 9
         Caption = 'A'
         ParentColor = False
       end
       object Edit1: TEdit
         Left = 50
-        Height = 23
+        Height = 37
         Top = 48
         Width = 72
         TabOrder = 0
       end
       object Edit2: TEdit
         Left = 192
-        Height = 23
+        Height = 37
         Top = 48
         Width = 72
         TabOrder = 1
       end
       object Label2: TLabel
         Left = 176
-        Height = 15
+        Height = 20
         Top = 56
-        Width = 7
+        Width = 9
         Caption = 'B'
         ParentColor = False
       end
       object Edit3: TEdit
         Left = 344
-        Height = 23
+        Height = 37
         Top = 48
         Width = 96
         TabOrder = 2
       end
       object Label3: TLabel
         Left = 304
-        Height = 15
+        Height = 20
         Top = 56
-        Width = 36
+        Width = 46
         Caption = 'ERROR'
         ParentColor = False
       end
@@ -83,7 +83,7 @@ object Form1: TForm1
       end
       object StringGrid1: TStringGrid
         Left = 8
-        Height = 226
+        Height = 306
         Top = 96
         Width = 560
         ColCount = 8
@@ -128,10 +128,10 @@ object Form1: TForm1
         )
       end
       object Memo1: TMemo
-        Left = 568
-        Height = 217
-        Top = 78
-        Width = 208
+        Left = 600
+        Height = 306
+        Top = 96
+        Width = 304
         Lines.Strings = (
           'Memo1'
         )
@@ -147,7 +147,7 @@ object Form1: TForm1
       end
       object Edit4: TEdit
         Left = 50
-        Height = 23
+        Height = 37
         Top = 13
         Width = 390
         TabOrder = 7
@@ -155,59 +155,59 @@ object Form1: TForm1
     end
     object FalsaPosicion: TTabSheet
       Caption = 'FalsaPosicion'
-      ClientHeight = 344
-      ClientWidth = 791
+      ClientHeight = 418
+      ClientWidth = 926
       object Label4: TLabel
         Left = 12
-        Height = 15
+        Height = 20
         Top = 12
-        Width = 35
+        Width = 45
         Caption = 'F(X) = '
         ParentColor = False
       end
       object Edit5: TEdit
         Left = 49
-        Height = 23
+        Height = 37
         Top = 10
         Width = 415
         TabOrder = 0
       end
       object Label5: TLabel
         Left = 14
-        Height = 15
+        Height = 20
         Top = 46
-        Width = 8
+        Width = 9
         Caption = 'A'
         ParentColor = False
       end
       object Label6: TLabel
         Left = 152
-        Height = 15
+        Height = 20
         Top = 48
-        Width = 7
+        Width = 9
         Caption = 'B'
         ParentColor = False
       end
       object Edit6: TEdit
         Left = 32
-        Height = 23
+        Height = 37
         Top = 44
         Width = 88
         TabOrder = 1
       end
       object Label7: TLabel
         Left = 288
-        Height = 15
+        Height = 20
         Top = 48
-        Width = 36
+        Width = 46
         Caption = 'ERROR'
         ParentColor = False
       end
       object StringGrid2: TStringGrid
         Left = 8
-        Height = 226
+        Height = 312
         Top = 96
-        Width = 650
+        Width = 584
         ColCount = 8
         RowCount = 1
         TabOrder = 2
@@ -251,14 +251,14 @@ object Form1: TForm1
       end
       object Edit7: TEdit
         Left = 168
-        Height = 23
+        Height = 37
         Top = 44
         Width = 102
         TabOrder = 3
       end
       object Edit8: TEdit
         Left = 324
-        Height = 23
+        Height = 37
         Top = 44
         Width = 140
         TabOrder = 4
@@ -271,6 +271,16 @@ object Form1: TForm1
         Caption = 'CALCULAR'
         OnClick = Button2Click
         TabOrder = 5
+      end
+      object Memo2: TMemo
+        Left = 608
+        Height = 312
+        Top = 96
+        Width = 308
+        Lines.Strings = (
+          'Memo2'
+        )
+        TabOrder = 6
       end
     end
   end
