@@ -97,6 +97,7 @@ object Form1: TForm1
     Caption = 'sin'
     Checked = True
     TabOrder = 5
+    TabStop = True
   end
   object RadioButton2: TRadioButton
     Left = 432

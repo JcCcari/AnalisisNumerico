@@ -1,16 +1,16 @@
 object Form1: TForm1
-  Left = 129
+  Left = 155
   Height = 523
-  Top = 143
+  Top = 121
   Width = 955
   Caption = 'Form1'
   ClientHeight = 523
   ClientWidth = 955
   LCLVersion = '1.6.4.0'
   object StaticText1: TStaticText
-    Left = 152
+    Left = 280
     Height = 32
-    Top = 24
+    Top = 8
     Width = 315
     Caption = 'METODOS CERRADOS'
     TabOrder = 0

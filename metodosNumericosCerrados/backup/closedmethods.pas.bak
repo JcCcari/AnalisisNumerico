@@ -116,9 +116,23 @@ begin
     Result.matrix[0,4] := '-';
     //////
 
+    if(fa=0) then
+              Result.result := FloatToStr(a) +' es la solucion 1'
+    else
+       begin
+            if( fb=0) then
+                    Result.result := FloatToStr(b)+' es la solucion 2'
+            else
+               if (fxn=0) then
+                    Result.result := FloatToStr(xn) +' es la solucion 3' ;
+    end;
+
     bolzano:= fa*fb;
     if ( bolzano> 0) then
-       Result.result := FloatToStr(fa)+'-'+ FloatToStr(fb)+' No cumple teorema de bolzano'
+    begin
+       Result.result := FloatToStr(fa)+' , '+ FloatToStr(fb)+' No cumple teorema de bolzano';
+       exit;
+    end
     else
     begin
         if( bolzano = 0) then

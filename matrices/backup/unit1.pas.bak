@@ -181,7 +181,7 @@ begin
     end;
     StringGrid3.ColCount:= cols1;
     StringGrid3.RowCount:= rows1;
-    expo := trunc( StrToInt( Edit5.Text ) );
+    expo := trunc( StrToFloat( Edit5.Text ) );
     res := calculator.powerMatrix(m1,expo);
 
   end;

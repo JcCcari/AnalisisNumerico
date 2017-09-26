@@ -54,7 +54,8 @@ begin
   begin
     i := i+1;
     fund.NewValue('x',xn_1); fdxn := fund.Evaluate();
-    if (fdxn = 0) then begin // verificamos que la tangente sea != 0
+    if (fdxn = 0) then
+    begin // verificamos que la tangente sea != 0
       xn_1 := xn_1 - e ; // si lo es -> perturbamos xn_1 con el error
       fund.NewValue('x',xn_1); fdxn := fund.Evaluate();
     end;
@@ -89,6 +90,7 @@ var
   xn,xn_1,eAbs, fxn, fxph, fxmh, h: Double;
   i: Integer;
   resMatrix: array of array of string;
+  derivada:double;
 begin
   fun:= TParseMath.create();
   fund:= TParseMath.create();
@@ -115,6 +117,16 @@ begin
     fun.NewValue('x',xn_1); fxn := fun.Evaluate();
     fun.NewValue('x',xn_1+h); fxph := fun.Evaluate();
     fun.NewValue('x',xn_1-h); fxmh := fun.Evaluate();
+
+    derivada := (fxph-fxmh)/2*h;
+
+    if (derivada=0) then
+    begin // verificamos que la tangente sea != 0
+      xn_1 := xn_1 - e ; // si lo es -> perturbamos xn_1 con el error
+      fun.NewValue('x',xn_1); fxn := fun.Evaluate();
+     fun.NewValue('x',xn_1+h); fxph := fun.Evaluate();
+     fun.NewValue('x',xn_1-h); fxmh := fun.Evaluate();
+    end;
 
     xn :=  xn_1 -( (2*h*fxn)/(fxph-fxmh) );
 

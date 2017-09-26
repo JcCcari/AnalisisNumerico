@@ -22,7 +22,7 @@ type
     public
       constructor create();
       function factorial(a: Integer): Int64;
-      function exp(x: Double; e: Double): TResult;
+      function exp(x: Double; errorI: Double): TResult;
       function sin(x: Double; e: Double): TResult;
       function cos(x: Double; e: Double): TResult;
       function ln(x: Double; e: Double): TResult;
@@ -41,7 +41,7 @@ constructor TTaylorSerie.create();
 begin
 end;
 
-function TTaylorSerie.factorial(a: Integer): Integer;
+function TTaylorSerie.factorial(a: Integer): Int64;
 var
   i: Integer;
   res: Integer;
@@ -62,6 +62,49 @@ begin
   end;
 end;
 
+//function TTaylorExpo.taylorexpo(x:Double ;errorI : Double):real;
+
+function TTaylorSerie.exp(x: Double; errorI: Double): TResult;
+var
+  errorO: double;
+    sum:Double;
+    error1: Double;
+    i:Integer;
+    res : Array of array of string;
+begin
+     errorO:=50;
+     sum:=1;
+     //writeln('    |       Resultado       |     Err. Absol.       |    Err. Relativo   |      Err. Porcent.    |');
+     //writeln('X0  |  ',sum,'  |       -       |       -       |       -       |');
+     i:=1;
+     error1:=sum;
+
+     SetLength(res,1,3);
+     res[0,0] := IntToStr(i);
+     res[0,1] := FloatToStr(sum);
+     res[0,2] := '-';
+
+     while(errorO>errorI) do
+     begin
+          sum := sum + (power(x,i)/factorial(i));
+          //errorO:=Eabsoluto(error1,sum);
+          errorO := abs(sum-error1);
+          //writeln('X',i,'  |  ',sum,'  |  ' ,(errorO):0:3 ,'   |   ',ERelativo(errorO,error1):0:2,'  |  ',(errorO/error1*100):0:2,'  |');
+          error1:=sum;
+          i:=i+1;
+
+          SetLength(res,i,3);
+          res[i-1,0] := IntToStr(i);
+          res[i-1,1] := FloatToStr(sum);
+          res[i-1,2] := FloatToStr(errorO);
+     end;
+     //taylorexpo:=sum;
+     //Result.result:= FloatToStr(sum);
+     Result.result:= FormatFloat(getZerosStr(getPresicion(errorI)),sum);
+     Result.matrix := res;
+end;
+
+{*
 function TTaylorSerie.exp(x: Double; e: Double): TResult;
 var
   eAbs, res, xn, xn_1: Double;
@@ -106,7 +149,7 @@ begin
   Result.result := FormatFloat( ePrecisionStr, res);
   Result.matrix := resMatrix;
 end;
-
+*}
 function TTaylorSerie.sin(x: double; e: double): TResult;
 var
   eAbs, res, xn, xn_1: Double;
@@ -271,7 +314,7 @@ var
 begin
   if ( abs(x) >= 1) then
   begin
-    Result.result:='NO'; // no cumple con dominio
+    Result.result:='NoDef'; // no cumple con dominio
     exit;
   end;
   digits:= getPresicion(e) ;
