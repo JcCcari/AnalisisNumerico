@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="10"/>
+    <BuildModes Active="Default"/>
+    <Units Count="2">
+      <Unit0>
+        <Filename Value="AnimalConsole.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="25"/>
+        <CursorPos X="11" Y="54"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="animal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="13"/>
+        <CursorPos X="23" Y="21"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit1>
+    </Units>
+    <JumpHistory Count="9" HistoryIndex="8">
+      <Position1>
+        <Filename Value="AnimalConsole.lpr"/>
+        <Caret Line="49" Column="71" TopLine="7"/>
+      </Position1>
+      <Position2>
+        <Filename Value="animal.pas"/>
+        <Caret Line="21" Column="29" TopLine="13"/>
+      </Position2>
+      <Position3>
+        <Filename Value="animal.pas"/>
+        <Caret Line="29" Column="40" TopLine="12"/>
+      </Position3>
+      <Position4>
+        <Filename Value="animal.pas"/>
+        <Caret Line="32" Column="31" TopLine="15"/>
+      </Position4>
+      <Position5>
+        <Filename Value="animal.pas"/>
+        <Caret Line="29" Column="40" TopLine="12"/>
+      </Position5>
+      <Position6>
+        <Filename Value="animal.pas"/>
+        <Caret Line="48" TopLine="16"/>
+      </Position6>
+      <Position7>
+        <Filename Value="animal.pas"/>
+        <Caret Line="29" Column="35" TopLine="10"/>
+      </Position7>
+      <Position8>
+        <Filename Value="animal.pas"/>
+        <Caret Line="44" Column="40" TopLine="18"/>
+      </Position8>
+      <Position9>
+        <Filename Value="animal.pas"/>
+        <Caret Line="29" TopLine="12"/>
+      </Position9>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
